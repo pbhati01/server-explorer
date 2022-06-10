@@ -7,13 +7,14 @@ import ServerListDetails from './components/ServerListDetails';
 function App() {
   const dispatch = useAppDispatch();
   const token = useAppSelector(state => state.auth.token);
-  
-  if(token) {
-    return <ServerListDetails />;
-  }
 
   return (
-    <Login />
+    <>
+    {!token ?
+    <Login />:<ServerListDetails />
+    }
+    </>
+    
   )
 }
 
