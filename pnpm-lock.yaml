@@ -7,6 +7,7 @@ specifiers:
   '@types/react-redux': ^7.1.24
   '@vitejs/plugin-react': ^1.3.0
   autoprefixer: ^10.4.7
+  heroicons-react: ^1.4.1
   postcss: ^8.4.14
   react: ^18.0.0
   react-dom: ^18.0.0
@@ -18,6 +19,7 @@ specifiers:
 dependencies:
   '@reduxjs/toolkit': 1.8.2_ctm756ikdwcjcvyfxxwskzbr6q
   '@types/react-redux': 7.1.24
+  heroicons-react: 1.4.1_react@18.1.0
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-redux: 8.0.2_zlkrlo2xsersbascmmsr65fm34
@@ -917,6 +919,15 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /heroicons-react/1.4.1_react@18.1.0:
+    resolution: {integrity: sha512-lFB8N44eeju73p5IjaeRrRejXsWWjsmeLK1LQrXGI5UnV9qvkzk2VZoMx5HKLnp1xJI4i9pFh/g2uRc7M1jrjQ==}
+    deprecated: 'Official Heroicons V1 released. Please use the following for future projects: https://www.npmjs.com/package/@heroicons/react'
+    peerDependencies:
+      react: '>=16.13'
+    dependencies:
+      react: 18.1.0
+    dev: false
 
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}

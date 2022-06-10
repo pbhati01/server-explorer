@@ -10,6 +10,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
     "@types/react-redux": "^7.1.24",
+    "heroicons-react": "^1.4.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.2"

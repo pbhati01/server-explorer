@@ -2,9 +2,9 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit"; //PayloadAction
 
 // Define a type for the slice state
-interface ServerData {
+export interface ServerData {
   name: string;
-  distance: string;
+  distance: number;
 }
 
 export interface ServerList extends Array<ServerData> {}
