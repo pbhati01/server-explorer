@@ -62,7 +62,6 @@ function ServerListDetails() {
         return y > x ? -1 : 1;
       }
     });
-    console.log("key :>> ", key, sortingOrder);
     setServerListData(sortedList);
     setSortKey(key);
     setSortOrder(sortingOrder);

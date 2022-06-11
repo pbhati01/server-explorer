@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { AuthState, setToken } from "../../store/authSlice";
-require('isomorphic-fetch');
+import 'isomorphic-fetch';
 
 function Login() {
   const dispatch = useAppDispatch();
@@ -62,7 +62,7 @@ function Login() {
                       </div>
                       <div className="text-center pt-1 mb-12 pb-1">
                         <button
-                          className="inline-block px-6 py-2.5 text-black font-medium text-xs leading-tight uppercase rounded shadow-md bg-blue-400 hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                          className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md bg-blue-400 hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                           type="submit"
                           data-testid="login-btn"
                           data-mdb-ripple="true"
