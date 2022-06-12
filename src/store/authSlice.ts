@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";//PayloadAction
+import { createSlice } from "@reduxjs/toolkit"; //PayloadAction
 
 // Define a type for the slice state
 export interface AuthState {

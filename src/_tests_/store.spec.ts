@@ -4,17 +4,17 @@ import { setServerList } from "../store/serverListSlice";
 
 const sampleServerList = [
   {
-    "name": "Singapore #94",
-    "distance": 612
+    name: "Singapore #94",
+    distance: 612,
   },
   {
-    "name": "Japan #41",
-    "distance": 56
+    name: "Japan #41",
+    distance: 56,
   },
   {
-    "name": "United Kingdom #71",
-    "distance": 497
-  }
+    name: "United Kingdom #71",
+    distance: 497,
+  },
 ];
 
 describe("Redux Action Tests", () => {
@@ -33,6 +33,8 @@ describe("Redux Action Tests", () => {
 
     store.dispatch(setServerList([...sampleServerList]));
     let newServerDataState = store.getState().serverData.serverList;
-    expect(JSON.stringify(newServerDataState)).toEqual(JSON.stringify(sampleServerList))
+    expect(JSON.stringify(newServerDataState)).toEqual(
+      JSON.stringify(sampleServerList)
+    );
   });
 });

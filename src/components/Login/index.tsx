@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { AuthState, setToken } from "../../store/authSlice";
-import 'isomorphic-fetch';
+import "isomorphic-fetch";
 
 function Login() {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ function Login() {
     const formEle = e.currentTarget as HTMLFormElement;
     const formData = new FormData(formEle);
     const requestData = Object.fromEntries(formData.entries());
-    loginBtn.current?.setAttribute("disabled", "true")
+    loginBtn.current?.setAttribute("disabled", "true");
     const resp = await fetch("https://playground.tesonet.lt/v1/tokens", {
       method: "POST",
       headers: {
