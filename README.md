@@ -40,15 +40,10 @@ This project is to prepare a server free application to explore server data with
 2. Go to server-explorer directory just created after git clone finishes.
    ```bash
    cd server-explorer
-   pnpm i
-   pnpm run dev
-   pnpm test
    ```
 3. Install project packages required to setup project in local, it takes packages from package.josn In same directory execuet below steps:
    ```bash
    pnpm i
-   pnpm run dev
-   pnpm test
    ```
 4. Launch application local enviornment, execute below command in same directory
    ```bash
