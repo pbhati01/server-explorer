@@ -14,11 +14,11 @@ function ServerListDetails() {
   const [serverListData, setServerListData] = useState<ServerList>([]);
   const [sortOrder, setSortOrder] = useState<String>("asc");
   const [sortKey, setSortKey] = useState<String>("name");
-  
+
   useEffect(() => {
     token && fetchServerData(token);
   }, [token]);
-  
+
   useEffect(() => {
     serverList && setServerListData(serverList);
   }, [serverList]);
@@ -45,7 +45,11 @@ function ServerListDetails() {
         server.distance?.toString().indexOf(searchValue) !== -1
       );
     });
-    const sortedServerList = sortServerList(sortKey, sortOrder, updatedServerList)
+    const sortedServerList = sortServerList(
+      sortKey,
+      sortOrder,
+      updatedServerList
+    );
     setServerListData(sortedServerList);
   };
 
@@ -70,16 +74,15 @@ function ServerListDetails() {
       }
     });
     return sortedList;
-  }
+  };
 
   const handleSorting = (key: string, sortingOrder: string) => {
     const order = sortingOrder === "asc" ? "desc" : "asc";
-    const sortedServerList = sortServerList(key, order, serverListData)
+    const sortedServerList = sortServerList(key, order, serverListData);
     setServerListData(sortedServerList);
     setSortKey(key);
     setSortOrder(sortingOrder);
   };
-
 
   const fetchServerData = async (token: string) => {
     const resp = await fetch("https://playground.tesonet.lt/v1/servers", {
@@ -168,7 +171,10 @@ function ServerListDetails() {
         </thead>
         <tbody data-testid="tbody">
           {serverListData.map((server: ServerData, key) => (
-            <tr key={`server-data-${key}`} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr
+              key={`server-data-${key}`}
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            >
               <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
