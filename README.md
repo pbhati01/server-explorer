@@ -10,9 +10,6 @@ This project is to prepare a server free application to explore server data with
    Is a build tool that aims to provide a faster and leaner development experience for modern web projects, it uses esbuild which way more faster than any other build tools [https://vitejs.dev/guide/]
 2. ### react with typescript -
    Using Typescript to build our React applications will make our react applications more predictable as we will be able to catch a lot of errors at runtime (during compilation). [https://create-react-app.dev/docs/adding-typescript/]
-   **some refs to answer why? :**
-   [https://www.sitepoint.com/react-with-typescript-best-practices/]
-   [https://www.section.io/engineering-education/building-a-react-app-with-typescript/#:~:text=Using%20Typescript%20to%20build%20our,at%20runtime%20(during%20compilation)]
 3. ### redux-toolkit with typescript -
    Redux Toolkit makes it easier to write good Redux applications and speeds up development, by baking in our recommended best practices, providing good default behaviors, catching mistakes, and allowing you to write simpler code. Redux Toolkit is beneficial to all Redux users regardless of skill level or experience [https://redux-toolkit.js.org/usage/usage-with-typescript]
 4. ### tailwind css -
