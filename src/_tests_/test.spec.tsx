@@ -11,7 +11,6 @@ import App from "../App";
 import Login from "../components/Login";
 import ServerListDetails from "../components/ServerListDetails";
 import { setToken } from "../store/authSlice";
-import "cross-fetch/polyfill";
 
 const renderLogin = () =>
   render(

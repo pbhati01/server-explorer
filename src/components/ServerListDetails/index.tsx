@@ -1,11 +1,10 @@
 import { useState, useEffect, FormEvent, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import serverListSlice, {
+import {
   ServerData,
   ServerList,
   setServerList,
 } from "../../store/serverListSlice";
-import { AuthState, setToken } from "../../store/authSlice";
 import * as Icons from "heroicons-react";
 
 function ServerListDetails() {
