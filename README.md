@@ -75,5 +75,7 @@ This project is to prepare a server free application to explore server data with
 # How it Looks
 
 1. Login Page
+![WhatsApp Image 2022-06-12 at 11 08 37 PM](https://user-images.githubusercontent.com/6111689/173245970-add6dac5-b516-445f-96ba-ab3dade6a0ad.jpeg)
 
 2. Server Details Page
+![WhatsApp Image 2022-06-12 at 11 07 55 PM](https://user-images.githubusercontent.com/6111689/173245985-e597b7e1-b300-4a89-8cef-78c0e249e4f1.jpeg)
