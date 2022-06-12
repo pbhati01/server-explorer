@@ -69,7 +69,7 @@ function ServerListDetails() {
 
   useEffect(() => {
     token && fetchServerData(token);
-  }, [token]);
+  }, [token]); 
 
   useEffect(() => {
     setServerListData(serverList);
