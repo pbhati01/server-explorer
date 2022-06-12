@@ -14,6 +14,14 @@ function ServerListDetails() {
   const [serverListData, setServerListData] = useState<ServerList>([]);
   const [sortOrder, setSortOrder] = useState<String>("asc");
   const [sortKey, setSortKey] = useState<String>("name");
+  
+  useEffect(() => {
+    token && fetchServerData(token);
+  }, [token]);
+  
+  useEffect(() => {
+    serverList && setServerListData(serverList);
+  }, [serverList]);
 
   const debounce = <T extends (...args: any[]) => any>(
     callback: T,
@@ -30,21 +38,21 @@ function ServerListDetails() {
     };
   };
 
-  const filterSearchList = (searchValue: string) => {
-    const updatedServerList = serverList.filter((server: ServerData) => {
+  const filterSearchList = (searchValue: string, serverData: ServerList) => {
+    const updatedServerList = serverData.filter((server: ServerData) => {
       return (
-        server.name.indexOf(searchValue) !== -1 ||
+        server.name?.toLowerCase().indexOf(searchValue?.toLowerCase()) !== -1 ||
         server.distance?.toString().indexOf(searchValue) !== -1
       );
     });
-    setServerListData(updatedServerList);
+    const sortedServerList = sortServerList(sortKey, sortOrder, updatedServerList)
+    setServerListData(sortedServerList);
   };
 
   const handleSearch = useCallback(debounce(filterSearchList, 500), []);
 
-  const handleSorting = (key: string, sortingOrder: string) => {
-    const order = sortingOrder === "asc" ? "desc" : "asc";
-    let sortedList = [...serverListData];
+  const sortServerList = (key: String, order: String, data: ServerList) => {
+    let sortedList = [...data];
     sortedList.sort((a: ServerData, b: ServerData) => {
       let x, y;
       if (key === "name") {
@@ -61,18 +69,17 @@ function ServerListDetails() {
         return y > x ? -1 : 1;
       }
     });
-    setServerListData(sortedList);
+    return sortedList;
+  }
+
+  const handleSorting = (key: string, sortingOrder: string) => {
+    const order = sortingOrder === "asc" ? "desc" : "asc";
+    const sortedServerList = sortServerList(key, order, serverListData)
+    setServerListData(sortedServerList);
     setSortKey(key);
     setSortOrder(sortingOrder);
   };
 
-  useEffect(() => {
-    token && fetchServerData(token);
-  }, [token]);
-
-  useEffect(() => {
-    setServerListData(serverList);
-  }, [serverList]);
 
   const fetchServerData = async (token: string) => {
     const resp = await fetch("https://playground.tesonet.lt/v1/servers", {
@@ -118,7 +125,7 @@ function ServerListDetails() {
             datatest-id="table-search"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search"
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={(e) => handleSearch(e.target.value, serverList)}
           />
         </div>
       </div>
@@ -128,15 +135,15 @@ function ServerListDetails() {
             <th scope="col" className="px-6 py-3 align-middle">
               <span className="inline-flex">
                 Name
-                {sortOrder === "asc" ? (
-                  <Icons.ChevronDoubleDown
-                    className="h-5 w-5 mx-2 text-black-500"
-                    onClick={() => handleSorting("name", "desc")}
-                  />
-                ) : (
+                {sortKey === "name" && sortOrder === "desc" ? (
                   <Icons.ChevronDoubleUp
                     className="h-5 w-5 mx-2 text-black-500"
                     onClick={() => handleSorting("name", "asc")}
+                  />
+                ) : (
+                  <Icons.ChevronDoubleDown
+                    className="h-5 w-5 mx-2 text-black-500"
+                    onClick={() => handleSorting("name", "desc")}
                   />
                 )}
               </span>
@@ -144,15 +151,15 @@ function ServerListDetails() {
             <th scope="col" className="px-6 py-3 align-middle">
               <span className="inline-flex">
                 Distance
-                {sortOrder === "asc" ? (
-                  <Icons.ChevronDoubleDown
-                    className="h-5 w-5 mx-2 text-black-500"
-                    onClick={() => handleSorting("distance", "desc")}
-                  />
-                ) : (
+                {sortKey === "distance" && sortOrder === "desc" ? (
                   <Icons.ChevronDoubleUp
                     className="h-5 w-5 mx-2 text-black-500"
                     onClick={() => handleSorting("distance", "asc")}
+                  />
+                ) : (
+                  <Icons.ChevronDoubleDown
+                    className="h-5 w-5 mx-2 text-black-500"
+                    onClick={() => handleSorting("distance", "desc")}
                   />
                 )}
               </span>
@@ -160,8 +167,8 @@ function ServerListDetails() {
           </tr>
         </thead>
         <tbody data-testid="tbody">
-          {serverListData.map((server: ServerData) => (
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          {serverListData.map((server: ServerData, key) => (
+            <tr key={`server-data-${key}`} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
