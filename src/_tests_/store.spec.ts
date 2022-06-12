@@ -20,7 +20,7 @@ const sampleServerList = [
 describe("Redux Action Tests", () => {
   test("set token in state", () => {
     let prevTokenState = store.getState().auth.token;
-    expect(prevTokenState).toBe("");
+    expect(prevTokenState).toBeNull();
 
     store.dispatch(setToken({ token: "test token" }));
     let newTokenState = store.getState().auth.token;

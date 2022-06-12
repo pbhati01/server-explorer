@@ -68,7 +68,7 @@ function ServerListDetails() {
   };
 
   useEffect(() => {
-    fetchServerData(token);
+    token && fetchServerData(token);
   }, [token]);
 
   useEffect(() => {
