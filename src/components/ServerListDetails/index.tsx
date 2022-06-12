@@ -69,7 +69,7 @@ function ServerListDetails() {
 
   useEffect(() => {
     token && fetchServerData(token);
-  }, [token]); 
+  }, [token]);
 
   useEffect(() => {
     setServerListData(serverList);
@@ -92,7 +92,12 @@ function ServerListDetails() {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-6/12 m-auto">
       <div className="p-4">
-        <h5 className="font-medium leading-tight text-xl mt-0 mb-5 text-blue-900" data-testid="server-page-heading">Server Details</h5>
+        <h5
+          className="font-medium leading-tight text-xl mt-0 mb-5 text-blue-900"
+          data-testid="server-page-heading"
+        >
+          Server Details
+        </h5>
         <div className="relative mt-1">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
