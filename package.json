@@ -1,17 +1,17 @@
 {
   "name": "server-explorer",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "prepare": "husky install",
-    "test:unit": "jest --watch",
-    "test": "jest",
-    "test:unit:coverage": "jest --silent --watchAll=false --coverage",
+    "dev": "vite",
     "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
     "lint": "eslint . --ext .ts,.tsx --fix --ignore-path .gitignore",
+    "prepare": "husky install",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:unit": "jest --watch",
+    "test:unit:coverage": "jest --silent --watchAll=false --coverage",
     "typecheck": "tsc --noEmit"
   },
   "lint-staged": {
@@ -29,15 +29,11 @@
     "@testing-library/dom": "^8.13.0",
     "@types/jest": "^28.1.1",
     "@types/react-redux": "^7.1.24",
-    "cross-fetch": "^3.1.5",
     "heroicons-react": "^1.4.1",
     "isomorphic-fetch": "^3.0.0",
-    "jest-transform-css": "^4.0.1",
-    "node-fetch": "^3.2.6",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-redux": "^8.0.2",
-    "save": "link://save"
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -69,7 +65,6 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-testing-library": "^5.1.0",
     "husky": "^8.0.1",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
     "postcss": "^8.4.14",
