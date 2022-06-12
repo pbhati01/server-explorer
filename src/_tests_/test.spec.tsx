@@ -41,7 +41,9 @@ describe("Test Login Component", () => {
     await userEvent.type(password, "partyanimal");
     await userEvent.click(loginBtn);
     expect(loginBtn).toBeDisabled();
-    await waitFor(() => expect(loginBtn).toBeEnabled());
+    await waitFor(() => expect(loginBtn).toBeEnabled(), {
+      timeout: 20000,
+    });
   });
 
   test("Post login state should  be set with token", async () => {
